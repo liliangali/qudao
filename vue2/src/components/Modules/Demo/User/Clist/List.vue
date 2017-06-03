@@ -1,72 +1,49 @@
 <template>
     <div class="list">
-        <el-col :span="24" class='actions-top'>
-       
-            
-            <el-form :inline="true" :model='search_data' class="demo-form-inline">
-                <el-form-item>
-                    <el-input placeholder="姓名" 
-                        v-model='search_data.user_name'
-                        clear></el-input>
-                </el-form-item>
-        
-                <el-form-item>
-                    <el-button type="default" @click='onSearch'>查询</el-button>
-                </el-form-item>
-            </el-form>
-        </el-col>
         <el-table border style="width: 100%" align='center' 
             :data="user_list"
             @selection-change='onSelectionChange'>
          
             <el-table-column
-                prop="user_name"
-                label="姓名"
+                prop="created_at"
+                label="提现时间"
                 align="center"
-                width="150"
                 :sortable="true">
             </el-table-column>
+
             <el-table-column
-                label="头像"
+                prop="cash_money"
+                label="提现金额"
+                align="center"
+                :sortable="true">
+            </el-table-column>
+
+            <el-table-column
+                prop="bank_card"
+                label="银行卡号"
+                align="center"
+                :sortable="true">
+            </el-table-column>
+
+
+             <el-table-column
+                prop="bank_name"
+                label="卡种类"
+                align="center"
+                :sortable="true">
+            </el-table-column>
+
+
+            <el-table-column
+                label="提现状态"
                 align="center"
                 >
               <template scope="scope">
-                 <img :src="scope.row.avatar" width=100 height=100/>
+                 <el-steps :space="100" :active="scope.row.status" finish-status="success">
+                  <el-step title="发起申请"></el-step>
+                  <el-step title="已完成"></el-step>
+                </el-steps>
              </template>
-            </el-table-column>
-            
-    
-
-            <el-table-column
-                prop="reg_time"
-                label="注册时间"
-                align="center"
-                width="150"
-                :sortable="true">
-            </el-table-column>
-
-               <el-table-column
-                prop="last_login"
-                label="最后登陆时间"
-                align="center"
-                width="150"
-                :sortable="true">
-            </el-table-column>
-
-                <el-table-column
-                prop="order_num"
-                label="订单总数"
-                align="center"
-                width="150"
-                :sortable="true">
-            </el-table-column>
-
-                <el-table-column
-                prop="final_amount_num"
-                label="订单总金额"
-                align="center"
-                width="150"
-                :sortable="true">
             </el-table-column>
 
     

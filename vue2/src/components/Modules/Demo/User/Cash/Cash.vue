@@ -73,10 +73,7 @@
 
 
             <el-form-item>
-                <el-button type="primary" @click='save_user("user_data")'>{{user_data.id ? '修改' : '添加'}}</el-button>
-                <el-button type="default"
-                           v-if="!user_data.id"
-                           @click='reset_user("user_data")'>重置</el-button>
+                <el-button type="primary" @click='save_user("user_data")'>提交</el-button>
             </el-form-item>
         </el-form>
     </div>
