@@ -18,7 +18,13 @@ var settings = {
 		 */
 		statusError(err) {
 
-			if (err.status !== 401) {
+			if (err.error == 'token_expired') 
+			{
+				this.$router.push('/login');
+				return;
+			}
+
+			if (err.status == 1) {
 				this.$message({
 					showClose: true,
 					message: '返回错误：' + err.msg,

@@ -62,6 +62,15 @@ module.exports = {
 		   		this.$$api_user_findBank({
 				}, (data) => {
 					this.user_data     = data.data.bank_info;
+					if (!this.user_data.id) 
+					{
+					   this.$alert('尚未绑定银行卡', '绑定银行卡', {
+				          confirmButtonText: '确定',
+				          callback: action => {
+				             this.$router.push('/adv/bank/edit');
+				          }
+				        });
+					}
 				});
 
 	     	     this.$$api_user_getBank({}, data1 => {

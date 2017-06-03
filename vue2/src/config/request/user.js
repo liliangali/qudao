@@ -68,6 +68,12 @@ module.exports = [
 		type  : 'post',
 	},
 	{
+		name  : '提现列表',
+		method: 'selectCash',
+		path  : '/users/cash',
+		type  : 'get',
+	},
+	{
 		name  : '设置权限',
 		method: 'updateUserAccess',
 		path  : '/User/updateUserAccess',

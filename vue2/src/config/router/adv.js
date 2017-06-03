@@ -37,7 +37,7 @@ module.exports = [{
 			path: 'log',
 			name: '提现记录',
 			icon: 'edit',
-			component: Modules.Demo.User.Aedit
+			component: Modules.Demo.User.Clist
 		}, 
 
 		// {
