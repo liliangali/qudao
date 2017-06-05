@@ -8,8 +8,15 @@
             <el-form-item label="渠道折扣" prop='discount' style="width:600px;">
                 <el-input v-model="data.discount"></el-input>
             </el-form-item>
+            <el-form-item label="最小提现金额(单次)" prop='min_money' style="width:600px;">
+                <el-input v-model="data.min_money"></el-input>
+            </el-form-item>
+                 <el-form-item label="最大提现金额(单次)" prop='max_money' style="width:600px;">
+                <el-input v-model="data.max_money"></el-input>
+            </el-form-item>
+
             <el-form-item>
-                <el-button type="primary" @click='onSubmit("refArticle")'>立即{{data.id ? '修改' : '修改'}}</el-button>
+                <el-button type="primary" @click='onSubmit("refArticle")'>提交</el-button>
             </el-form-item>
      
         </el-form>

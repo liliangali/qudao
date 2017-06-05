@@ -33,20 +33,7 @@ module.exports = [{
 			component: Modules.Demo.Article.Edit
 		}]
 	},
-	{
-		path: 'discount',
-		name: '折扣管理',
-		icon: 'inbox',
-		component: Content,
-		redirect: '/components/discount/edit',
-		children: [
-		{
-			path: 'edit',
-			name: '编辑折扣',
-			icon: 'edit',
-			component: Modules.Demo.Article.Discount
-		}]
-	},
+
 	// {
 	// 	path: 'list',
 	// 	name: '列表组件',

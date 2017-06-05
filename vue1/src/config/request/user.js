@@ -62,6 +62,43 @@ module.exports = [
 		path  : '/mfd/users/find',
 		type  : 'get',
 	},
+	{
+		name  : '提现申请',
+		method: 'saveCash',
+		path  : '/users/cash',
+		type  : 'post',
+	},
+	{
+		name  : '提现列表',
+		method: 'selectCash',
+		path  : '/mfd/users/cash',
+		type  : 'get',
+	},
+	{
+		name  : '银行列表',
+		method: 'getBank',
+		path  : '/users/bankl',
+		type  : 'get',
+	},
+
+	{
+		name  : '获得网银相关信息',
+		method: 'findBank',
+		path  : '/users/bank',
+		type  : 'get',
+	},
+	{
+		name  : '获得网银相关信息',
+		method: 'findCash',
+		path  : '/mfd/users/cashi',
+		type  : 'get',
+	},
+	{
+		name  : '提现审核',
+		method: 'saveCash',
+		path  : '/mfd/users/cash',
+		type  : 'post',
+	},
 
 	{
 		name  : '修改密码',

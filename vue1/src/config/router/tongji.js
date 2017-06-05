@@ -34,6 +34,8 @@ module.exports = [{
 			hidden   : true,
 			component: Modules.Demo.User.Edit
 		}, 
+	
+		
 
 		// {
 		// 	path: 'list',
@@ -47,24 +49,32 @@ module.exports = [{
 		// 	component: Modules.Adv.Article.Edit
 		// }
 		]
-	}, /*{
-		path: 'wangeditor',
-		name: 'wangeditor富文本',
+	}, 
+
+
+
+	{
+		path: 'cash',
+		name: '提现管理',
 		icon: 'inbox',
 		component: Content,
-		redirect: '/adv/wangeditor/one',
-		children: [{
-			path: 'one',
-			name: '单个',
-			icon: 'reorder',
-			component: Modules.Adv.Wangeditor.One
-		}, {
-			path: 'many',
-			name: '多个',
-			icon: 'edit',
-			component: Modules.Adv.Wangeditor.Many
-		}]
-	},*/ 
+		redirect: '/tongji/cash/list',
+		children: [
+			{
+				path: 'list',
+				name: '提现列表',
+				icon: 'reorder',
+				component: Modules.Demo.User.Clist
+			}, 
+			{
+				path: 'shenhe',
+				name: '提现审核',
+				icon: 'edit',
+				hidden   : true,
+				component: Modules.Demo.User.Cash
+			}, 
+		]
+	},
 	// {
 	// 	path: 'open',
 	// 	name: '第三方接入',

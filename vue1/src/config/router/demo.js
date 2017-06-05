@@ -82,6 +82,20 @@ module.exports = [{
 		// 	component: Modules.Demo.OrderStatis.Pie
 		// }
 		]
-	}
+	},
+		{
+		path: 'discount',
+		name: '参数管理',
+		icon: 'inbox',
+		component: Content,
+		redirect: '/components/discount/edit',
+		children: [
+		{
+			path: 'edit',
+			name: '编辑参数',
+			icon: 'edit',
+			component: Modules.Demo.Article.Discount
+		}]
+	},
 	]
 }];

@@ -7,12 +7,24 @@ module.exports = {
 	data() {
 		return {
 			data: {
-				discount  : '',
+				discount   :'',
+				min_money  : '',
+				max_money  : '',
 			},
 			rules       : {
 				discount  : [{
 					required: true,
-					message : '文章标题不能为空！',
+					message : '参数不能为空！',
+					trigger : 'blur'
+				}],
+				min_money  : [{
+					required: true,
+					message : '参数不能为空！',
+					trigger : 'blur'
+				}],
+				max_money  : [{
+					required: true,
+					message : '参数不能为空！',
 					trigger : 'blur'
 				}],
 			},
@@ -30,7 +42,7 @@ module.exports = {
 				if (valid) {
 					this.$$api_user_editDiscount(this.data, data => {
 						  this.$message('设置成功');
-						this.$router.push('/components/discount/edit');
+						this.$router.push('/demo/discount/edit');
 					});
 				}
 			});
