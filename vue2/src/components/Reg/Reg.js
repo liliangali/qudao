@@ -171,9 +171,9 @@ module.exports = {
         },
        handleAvatarSuccess(res, file) {
         
-        this.$refs.data.imageUrl = res.imr_url;
-        this.data.imageUrl = res.imr_url;
-        this.imageUrl = res.imr_url;
+        this.$refs.data.imageUrl = res.data.img_url;
+        this.data.imageUrl = res.data.img_url;
+        this.imageUrl = res.data.img_url;
         this.$refs.data.validateField('imageUrl');//change之后重新 验证
                 // console.log(this.$refs.data)
       },

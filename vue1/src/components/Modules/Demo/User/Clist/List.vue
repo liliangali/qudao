@@ -67,7 +67,9 @@
                 :formatter="formatterSex"
                 :filters="sex_filters.list"
                 :filter-method="filterSex"
-                :filter-multiple="sex_filters.multiple">
+                :filter-multiple="sex_filters.multiple"
+                filter-placement="bottom-end"
+                >
             </el-table-column>
 
 

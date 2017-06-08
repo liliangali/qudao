@@ -40,6 +40,26 @@ module.exports = [{
 		// }
 		]
 	}, 
+	{
+		path: 'order',
+		name: '订单管理',
+		icon: 'inbox',
+		component: Content,
+		redirect: '/demo/order/list',
+		children: [{
+			path: 'list',
+			name: '订单列表',
+			icon: 'reorder',
+			component: Modules.Demo.Order.List
+		}, 
+		// {
+		// 	path: 'edit',
+		// 	name: '编辑订单',
+		// 	icon: 'edit',
+		// 	component: Modules.Demo.Order.Edit
+		// }
+		]
+	},
 	// {
 	// 	path: 'article',
 	// 	name: '文章管理',

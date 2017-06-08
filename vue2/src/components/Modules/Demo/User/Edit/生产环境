@@ -1,0 +1,25 @@
+生产环境
+	118.190.71.70
+	3306
+	mfdplatformread
+	mfdplatformread!@#$%^&.
+
+
+测试环境
+	db1.day900.com
+	3306
+	mfdplatform
+	mfdplatform123456	
+
+
+svn
+	http://usvn.day900.com/svn/project_mfdplatform/trunk/
+	
+	mfda
+	mfda!@#$%^
+
+	mfdb
+	mfdb^%$#@!
+
+	mfdc
+	mfdc&*((*&

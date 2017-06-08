@@ -25,14 +25,18 @@ module.exports = {
                     text: '未操作',
                     value: 0
                 }, {
-                    text: '成功',
+                    text: '审核成功',
                     value: 1
                 },{
                     text: '失败',
                     value: 2
                 }
+                ,{
+                    text: '已打款',
+                    value: 2
+                }
                 ],
-                multiple: false
+                multiple: true
             },
      
         }
@@ -44,18 +48,22 @@ module.exports = {
          * @param  {object} item 当前用户信息
          * @return {string}      根据定义的类型转换文本描述值
          */
-        formatterSex(item) {
+        formatterSex(item,val) {
           if (item.status == 0) 
           {
               return '未操作'
           }
           else if (item.status == 1) 
           {
-            return '成功'
+            return '审核成功'
+          }
+           else if (item.status == 2) 
+          {
+             return '失败('+item.msg+')'
           }
           else
           { 
-            return '失败('+item.msg+')'
+            return '已打款'
           }
         },
          /**
@@ -65,7 +73,7 @@ module.exports = {
          * @return {boolean}       匹配成功为true,否则为false
          */
         filterSex(value, item) {
-            return item.member_type == value;
+            return item.status == value;
         },
 
            /**
@@ -142,7 +150,6 @@ module.exports = {
                     data[k] = this.search_data[k];
                 }
             }
-
 
             this.$$api_user_selectCash(data, (data) => {
                 this.user_list = data.data.data;

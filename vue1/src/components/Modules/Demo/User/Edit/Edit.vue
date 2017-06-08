@@ -21,6 +21,21 @@
                     v-model="user_data.user_name" 
                     placeholder='用户名'></el-input>
             </el-form-item>
+
+            <div v-if="user_data.member_type == 0 && user_data.openid == '' " >
+            <el-form-item label="是否设为渠道">
+                <el-switch 
+                on-color="#13ce66"
+                off-color="#ff4949"
+                    on-text="启用" 
+                    off-text="禁用"
+                    v-model="is_qudao"
+                    @change='changeQudao($event)'
+                    ></el-switch>
+            </el-form-item>
+          </div>    
+
+
 <div v-if="user_data.member_type == 2">
 
             <el-form-item class='edit-form' 

@@ -63,13 +63,14 @@
                   label="审核状态" 
                   prop='card_name'>
                  <el-radio-group 
-                 :disabled="cash_status"
+               
                  v-model="radio2" 
                  @change="changeStatus"
                  >
-                <el-radio :label="0">未审核</el-radio>
-                <el-radio :label="1">成功</el-radio>
-                <el-radio :label="2">失败</el-radio>
+                <el-radio :label="0"   :disabled="cash_status" >未审核</el-radio>
+                <el-radio :label="1"   :disabled="cash_status" >成功</el-radio>
+                <el-radio :label="2"   :disabled="cash_status" >失败</el-radio>
+                <el-radio :label="3"   :disabled="money_status" >已打款</el-radio>
               </el-radio-group>
             </el-form-item>
 
@@ -86,7 +87,7 @@
 
 
             <el-form-item>
-                <el-button   type="primary" @click='save_user("user_data")'>提交</el-button>
+                <el-button  :disabled="sub_status"  type="primary" @click='save_user("user_data")'>提交</el-button>
             </el-form-item>
         </el-form>
     </div>

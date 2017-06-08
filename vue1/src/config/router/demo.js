@@ -63,26 +63,26 @@ module.exports = [{
 		// }
 		]
 	},
-	 {
-		path: 'orderstatis',
-		name: '订单统计',
-		icon: 'inbox',
-		component: Content,
-		redirect: '/demo/orderstatis/bar',
-		children: [{
-			path: 'bar',
-			name: '柱状图',
-			icon: 'reorder',
-			component: Modules.Demo.OrderStatis.Bar
-		}, 
-		// {
-		// 	path: 'pie',
-		// 	name: '饼状图',
-		// 	icon: 'edit',
-		// 	component: Modules.Demo.OrderStatis.Pie
-		// }
-		]
-	},
+	//  {
+	// 	path: 'orderstatis',
+	// 	name: '订单统计',
+	// 	icon: 'inbox',
+	// 	component: Content,
+	// 	redirect: '/demo/orderstatis/bar',
+	// 	children: [{
+	// 		path: 'bar',
+	// 		name: '柱状图',
+	// 		icon: 'reorder',
+	// 		component: Modules.Demo.OrderStatis.Bar
+	// 	}, 
+	// 	// {
+	// 	// 	path: 'pie',
+	// 	// 	name: '饼状图',
+	// 	// 	icon: 'edit',
+	// 	// 	component: Modules.Demo.OrderStatis.Pie
+	// 	// }
+	// 	]
+	// },
 		{
 		path: 'discount',
 		name: '参数管理',

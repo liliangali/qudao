@@ -31,6 +31,7 @@ module.exports = {
            selectedOptions2: [],
            selectedOptions3: [3, 4],
 		   cstatus:true,
+		   is_qudao:false,
 
 		}
 	},
@@ -67,6 +68,16 @@ module.exports = {
 				this.user_data.is_service = 1;
 			}
 		},
+		changeQudao(val) {
+			if (val) 
+			{
+				this.user_data.member_type = 1;
+			}
+			else
+			{
+				this.user_data.member_type = 0;
+			}
+		},
 		getView(){
 			if (this.$route.query.id) {
 				//地区联动
@@ -77,6 +88,7 @@ module.exports = {
 						this.user_data        = data.data;
 						this.user_data.region = [parseInt(this.user_data.region[0]),parseInt(this.user_data.region[1])]; 
 						this.cstatus = this.user_data.is_service == 1 ? true : false;
+						this.is_qudao =  this.user_data.member_type == 1 ? true : false;
 					});
 
 		     	     this.$$api_system_getRegion({rid:-1}, data1 => {

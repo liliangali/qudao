@@ -1,6 +1,29 @@
 module.exports = {
 	name   : 'user',
 	data() {
+	var checkMoney = (rule, value, callback) => {
+        if (!value) {
+          return callback(new Error('金额不能为空'));
+        }
+        setTimeout(() => {
+          if (!Number.isInteger(value)) {
+            callback(new Error('请输入数字值'));
+          } else {
+            if (value < this.dicsount.min_money) {
+              callback(new Error('最小提现金额为'+this.dicsount.min_money));
+            } 
+            else if (value > this.dicsount.max_money) {
+            	callback(new Error('最大提现金额为'+this.dicsount.max_money));
+            }
+            else {
+              callback();
+            }
+
+
+          }
+        }, 500);
+      };
+
 		return {
 			user_data : {
 				bank_card   : '',
@@ -8,7 +31,7 @@ module.exports = {
 				bank : '',
 				card_name     : '',
 				phonecode : '',
-				money:'0.00',
+				money:'',
 			},
 			user_rules: {
 				phonecode   : [{
@@ -16,6 +39,10 @@ module.exports = {
 					message: '验证码必须填写',
 					trigger: 'blur'
 				}],
+
+				money   : [
+					 {validator: checkMoney, trigger: 'blur' },
+				],
 			
 
 			},
@@ -31,6 +58,13 @@ module.exports = {
 	            limit_time:30,
 	            t:{},
         	},
+        	dicsount:{
+        		discount:'',
+        		max_money:'',
+        		min_money:'',
+        	},
+        	limit_money:'',
+
 
 		}
 	},
@@ -62,6 +96,8 @@ module.exports = {
 		   		this.$$api_user_findBank({
 				}, (data) => {
 					this.user_data     = data.data.bank_info;
+					this.limit_money = this.user_data.money;
+					this.user_data.money = '';
 					if (!this.user_data.id) 
 					{
 					   this.$alert('尚未绑定银行卡', '绑定银行卡', {
@@ -75,6 +111,10 @@ module.exports = {
 
 	     	     this.$$api_user_getBank({}, data1 => {
    				 		this.options = data1.data;
+				 });
+
+				   this.$$api_user_getDiscount({}, data1 => {
+   				 		this.dicsount = data1.data;
 				 });
 
 
@@ -96,9 +136,6 @@ module.exports = {
                       clearTimeout(this.paytime.t);      
                 }
             },1000)
-       },
-       reloadMoney:function(){
-       	this.getView();
        },
 	},
 	mounted() {

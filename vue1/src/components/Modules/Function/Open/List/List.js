@@ -1,5 +1,11 @@
+import {
+    Bar as Bar
+} from 'modules/Demo/OrderStatis';
 module.exports = {
     name: 'list',
+     components: {
+        Bar
+    },
     data() {
         return {
             tableData: [{
@@ -27,9 +33,24 @@ module.exports = {
                 status: 1,
                 address: '上海滩',
             }],
+            openData:{
+
+            },
         }
     },
     methods: {
-     
-    }
+          /**
+         * 获取用户信息列表方法
+         */
+        getList() {
+            
+            this.$$api_open_getBasic({}, (data) => {
+                this.openData = data.data;
+            });
+        }
+    },
+
+    mounted() {
+        this.getList();
+    },
 }

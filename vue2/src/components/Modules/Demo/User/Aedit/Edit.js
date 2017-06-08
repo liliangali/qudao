@@ -7,6 +7,7 @@ module.exports = {
 				bank_address : '',
 				bank : '',
 				card_name     : '',
+				phone_code:'',
 			},
 			user_rules: {
 				bank_card   : [{
@@ -29,6 +30,11 @@ module.exports = {
 					message : '开户姓名必须填写',
 					trigger : 'blur'
 				}],
+				phone_code   : [{
+					required   : 'true',
+					message: '验证码必须填写',
+					trigger: 'blur'
+				}],
 
 			},
 			options: [],
@@ -36,7 +42,13 @@ module.exports = {
            selectedOptions2: [],
            selectedOptions3: [3, 4],
 		   cstatus:true,
-		   value:''
+		   value:'',
+		   paytime:{
+	            time:'获取验证码',
+	            disa:false,
+	            limit_time:30,
+	            t:{},
+        	},
 
 		}
 	},
@@ -75,9 +87,24 @@ module.exports = {
 				 });
 		},
 		 handleChange(value) {
-
-            //this.$refs.data.validateField('selectedOptions2');//change之后重新 验证
         },
+      plan:function(event){    //用户点击后准备进入倒计时状态 
+            //发送验证码
+            this.$$api_system_sendCode({mobile:this.$store.state.user.userinfo.user_name}, data => {
+            });
+            this.paytime.disa = true;
+            this.paytime.t = setInterval(()=> {
+                this.paytime.time = this.paytime.limit_time;
+                this.paytime.limit_time--
+                if(this.paytime.limit_time <= 0)
+                {
+                      this.paytime.limit_time = 30;
+                      this.paytime.disa = false;
+                      this.paytime.time = '获取验证码';
+                      clearTimeout(this.paytime.t);      
+                }
+           },1000)
+       },
 	},
 	mounted() {
 		this.getView();

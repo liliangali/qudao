@@ -18,25 +18,16 @@
         <el-table border style="width: 100%" align='center' 
             :data="user_list"
             @selection-change='onSelectionChange'>
-         
-            <el-table-column
-                prop="user_name"
-                label="姓名"
-                align="center"
-                width="150"
-                :sortable="true">
-            </el-table-column>
             <el-table-column
                 label="头像"
                 align="center"
                 >
               <template scope="scope">
-                 <img :src="scope.row.avatar" width=100 height=100/>
+                 <img :src="scope.row.avatar" width=100 height=100/><br>
+                 <span>{{scope.row.user_name}}</span>
              </template>
             </el-table-column>
-            
     
-
             <el-table-column
                 prop="reg_time"
                 label="注册时间"

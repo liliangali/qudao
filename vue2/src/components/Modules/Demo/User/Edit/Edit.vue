@@ -21,6 +21,52 @@
                     v-model="user_data.user_name" 
                     placeholder='用户名'></el-input>
             </el-form-item>
+
+            <el-form-item label="用户头像"  style="width:100%;" prop='imageUrl'>
+            
+            <el-upload
+              class="avatar-uploader"
+              :action="uploadUrl"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+              :before-upload="beforeAvatarUpload">
+              <img v-if="user_data.avatar" :src="user_data.avatar" class="avatar">
+              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+             </el-form-item>
+
+
+              <el-form-item class='' 
+                label="推广二维码" 
+                prop='image_url'>
+                <el-row>
+                  <el-col :span="8">
+                    <el-card :body-style="{ padding: '0px' }">
+                     <img :src="user_data.channel" class="image">
+                     <a :href="user_data.channel" download="w3logo">
+                     点击下载
+                     </a>
+                    </el-card>
+                  </el-col>
+                </el-row>
+            </el-form-item>
+
+                 <el-form-item class='' 
+                label="绑定二维码" 
+                prop='erweimaUrl'>
+                <el-row>
+                  <el-col :span="8">
+                    <el-card :body-style="{ padding: '0px' }">
+                     <img :src="user_data.erweimaUrl" class="image">
+                     <div>
+                     用于绑定自己的微信号，请注意保密,不要泄漏给任何人
+                     </div>
+                    </el-card>
+                  </el-col>
+                </el-row>
+            </el-form-item>
+
+
             <div v-if="user_data.member_type == 2">
             <el-form-item class='edit-form' 
                 label="商铺名称" 
@@ -66,6 +112,9 @@
                   <el-col :span="8">
                     <el-card :body-style="{ padding: '0px' }">
                      <img :src="user_data.image_url" class="image">
+                     <a :href="user_data.image_url" download="w3logo">
+                     点击下载
+                     </a>
                     </el-card>
                   </el-col>
                 </el-row>

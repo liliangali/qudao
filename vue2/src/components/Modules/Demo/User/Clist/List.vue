@@ -39,9 +39,24 @@
                 align="center"
                 >
               <template scope="scope">
-                 <el-steps :space="100" :active="scope.row.status" finish-status="success">
-                  <el-step title="发起申请"></el-step>
-                  <el-step title="已完成"></el-step>
+                 <el-steps v-if="scope.row.status == 0" :space="70" :active="1" finish-status="success">
+                  <el-step title="申请"></el-step>
+                  <el-step title="通过"></el-step>
+                   <el-step title="打款"></el-step>
+                </el-steps>
+                 <el-steps v-else-if="scope.row.status == 1" :space="70" :active="2" finish-status="success">
+                  <el-step title="申请"></el-step>
+                  <el-step title="通过"></el-step>
+                  <el-step title="打款"></el-step>
+                </el-steps>
+                 <el-steps v-else-if="scope.row.status == 2" :space="70" :active="2" finish-status="success">
+                  <el-step title="申请"></el-step>
+                  <el-step title="拒绝" :description="scope.row.msg"></el-step>
+                </el-steps>
+                  <el-steps v-else-if="scope.row.status == 3" :space="70" :active="3" finish-status="success">
+                  <el-step title="申请"></el-step>
+                  <el-step title="拒绝"></el-step>
+                  <el-step title="打款"></el-step>
                 </el-steps>
              </template>
             </el-table-column>

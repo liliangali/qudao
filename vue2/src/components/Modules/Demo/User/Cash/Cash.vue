@@ -7,15 +7,19 @@
             ref='user_data'>
 
 
+    <el-form-item class='edit-form' 
+                label="提现金额" 
+                prop='discount'>
+<span>可提现额度:{{limit_money}}</span>  <br>   <span>单次最大提现额度:{{dicsount.max_money}}</span>
+<br><span>单次最小提现额度:{{dicsount.min_money}}</span>
+            </el-form-item>
+
             <el-form-item class='edit-form' 
                 label="提现金额" 
                 prop='money'>
                 <el-input
-                 :disabled=true
                  style="width:50%;"
-                        v-model="user_data.money" placeholder='0.00'></el-input>
-
-                          <el-button  v-on:click="reloadMoney" >刷新</el-button>
+                        v-model.number="user_data.money" placeholder='0.00'></el-input>
             </el-form-item>
 
 
@@ -65,7 +69,7 @@
 
                        <el-form-item class='edit-form' 
                 label="手机验证码" 
-                prop='card_name'>
+                prop='phonecode'>
                  <el-input  v-model="user_data.phonecode" placeholder="请输入手机验证码" style="width:50%;"></el-input>
                             <el-button :plain="true" v-on:click="plan" :disabled="paytime.disa">{{paytime.time}}</el-button>
 
@@ -73,7 +77,7 @@
 
 
             <el-form-item>
-                <el-button type="primary" @click='save_user("user_data")'>提交</el-button>
+                <el-button type="primary"  @click='save_user("user_data")'>提交</el-button>
             </el-form-item>
         </el-form>
     </div>

@@ -1,10 +1,11 @@
 <template>
     <section class="chart">
         <el-row>
+          <!-- 
         <el-button
                     type="primary"
                     @click='onUpdateValueList'>更新数据值</el-button>
-        <!-- 
+      
             <el-col :span='24'>
                 <el-button
                     type="primary"

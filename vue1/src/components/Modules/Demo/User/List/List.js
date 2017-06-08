@@ -40,7 +40,7 @@ module.exports = {
                     text: '公司',
                     value: 2
                 }],
-                multiple: false
+                multiple: true
             },
 
             //列表过滤状态

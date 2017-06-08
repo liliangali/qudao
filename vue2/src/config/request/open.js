@@ -7,28 +7,9 @@
  */
 module.exports = [
 	{
-		name:'上传七牛图片',
-		method:'uploadQiniuFile',
-		path:'',
-		type:'post',
-	},
-	{
-		name:'获取七牛上传图片token',
-		method:'getQiniuToken',
-		path:'/Open/getQiniuToken',
+		name:'获取首页基本信息',
+		method:'getBasic',
+		path:'users/basic',
 		type:'get',
 	},
-
-	{
-		name:'获取七牛图片列表',
-		method:'getQiniuFileList',
-		path:'/Open/getQiniuFileList',
-		type:'get',
-	},
-	{
-		name:'删除七牛文件',
-		method:'deleteQiniuFile',
-		path:'/Open/deleteQiniuFile',
-		type:'post',
-	}
 ];

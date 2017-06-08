@@ -37,13 +37,13 @@ module.exports = {
                     value: 0
                 }, {
                     text: '个人渠道',
-                    value: 2
+                    value: 1
                 },{
                     text: '公司渠道',
                     value: 2
                 }
                 ],
-                multiple: false
+                multiple: true
             },
 
             //列表过滤状态
@@ -55,7 +55,7 @@ module.exports = {
                     text: '禁用',
                     value: 2
                 }],
-                multiple: false
+                multiple: true
             },
              options: [
              {

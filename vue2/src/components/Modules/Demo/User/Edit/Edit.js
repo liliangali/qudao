@@ -1,3 +1,6 @@
+import {
+    gbs
+} from 'config/settings.js';
 module.exports = {
 	name   : 'user',
 	data() {
@@ -12,6 +15,7 @@ module.exports = {
 				is_service:0,
 				password:'',
 				member_type:0,
+				avatar:'',
 			},
 			user_rules: {
 				email   : [{
@@ -31,10 +35,32 @@ module.exports = {
            selectedOptions2: [],
            selectedOptions3: [3, 4],
 		   cstatus:true,
+		   uploadUrl:gbs.host+"/auth/imgup",
 
 		}
 	},
 	methods: {
+	  handleAvatarSuccess(res, file) {
+
+        this.user_data.avatar = res.data.img_url;
+        	console.log(this.user_data.avatar)
+      },
+      beforeAvatarUpload(file) {
+        var isJPG = false;
+        if(file.type === 'image/jpeg' || file.type === 'image/png')
+        {
+            isJPG = true;
+        }
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
+      },
+
 		save_user(userdata) {
 
 

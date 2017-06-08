@@ -97,7 +97,7 @@ module.exports = {
             switch (cmditem) {
                 case 'info':
                     this.$router.push({
-                        path: '/demo/user/edit',
+                        path: '/components/form/edit',
                         query: {
                             id: this.$store.state.user.userinfo.id
                         }

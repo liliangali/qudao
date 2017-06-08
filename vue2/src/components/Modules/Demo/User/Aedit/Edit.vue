@@ -49,10 +49,12 @@
 
                        <el-form-item class='edit-form' 
                 label="绑定手机验证码" 
-                prop='card_name'>
+                prop='phone_code'>
                 <el-input
                         :disabled='false'
-                        v-model="user_data.card_name" placeholder='开户姓名'></el-input>
+                        style="width:50%;"
+                        v-model="user_data.phone_code" placeholder='手机验证码'></el-input>
+                         <el-button :plain="true" v-on:click="plan" :disabled="paytime.disa">{{paytime.time}}</el-button>
                </el-form-item>
 
 

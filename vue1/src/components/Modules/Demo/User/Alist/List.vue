@@ -98,11 +98,6 @@
                           label="操作"
                           width="100">
                           <template scope="scope">
-                             <el-button
-                            type="info"
-                            icon='view'
-                            size="mini"
-                            @click='onSelectUser(scope.row)'></el-button>
                     <el-button
                             type="info"
                             icon='edit'

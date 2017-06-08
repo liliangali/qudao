@@ -74,6 +74,12 @@ module.exports = [
 		type  : 'get',
 	},
 	{
+		name  : '获得渠道折扣',
+		method: 'getDiscount',
+		path  : '/users/discount',
+		type  : 'get',
+	},
+	{
 		name  : '设置权限',
 		method: 'updateUserAccess',
 		path  : '/User/updateUserAccess',

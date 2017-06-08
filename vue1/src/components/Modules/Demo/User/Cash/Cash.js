@@ -18,6 +18,8 @@ module.exports = {
         	msg_status:true,
         	cash_status:false,
         	status:0,
+        	money_status:true,
+        	sub_status:false,
 
 		}
 	},
@@ -49,6 +51,14 @@ module.exports = {
 					if (this.user_data.status != 0) {
 						this.cash_status = true;
 						this.msg_status = true;
+					};
+
+					if (this.user_data.status == 1) {
+						this.money_status = false;
+					};
+
+					if (this.user_data.status == 2 || this.user_data.status == 3) {
+						this.sub_status = true;
 					};
 				
 				});
