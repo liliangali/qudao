@@ -129,7 +129,7 @@ module.exports = {
                             if (data.userinfo.default_web_routers){
 								this.$router.push(data.userinfo.default_web_routers);
 							}else{
-								this.$router.push('/function/open/echarts');
+								this.$router.push('/function/open/list');
 							}
                         });
                     }, {
