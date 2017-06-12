@@ -85,18 +85,19 @@ module.exports = {
             this.formOffset.left = (parseInt(this.winSize.width) / 2 - 175) + 'px';
             this.formOffset.top = (parseInt(this.winSize.height) / 2 - 178) + 'px';
         },
-
         onLogin(ref,type) {
             if(type && this.register===true){
                 this.$message.error('请输入确认密码');
                 return;
             }
             this.$refs[ref].validate((valid) => {
+
                 if (valid) {
                     this.login_actions.disabled = true;
                     //如果记住密码，提交的信息包括真实token，密码则是假的
                     //服务端登录验证优先级：用户名必须，其次先取token，不存在时再取密码
                     this.$$api_user_login(this[ref], data => {
+
                         //登录成功之后，验证是否记住密码，如果记住密码，本地保存记住信息
                         //如果没有记住，就初始化本地记住信息
                         if (this.remumber.remumber_flag === true) {
@@ -129,9 +130,10 @@ module.exports = {
                             if (data.userinfo.default_web_routers){
 								this.$router.push(data.userinfo.default_web_routers);
 							}else{
-								this.$router.push('/function/open/echarts');
+								this.$router.push('/function/open/list');
 							}
                         });
+                   
                     }, {
                         errFn: () => {
                             this.login_actions.disabled = false;
