@@ -11,10 +11,13 @@
                 <div id="article" style="height:260px;"></div>
             </el-form-item>
       
-     
+      <!--
             <el-form-item label="状态">
                 <el-switch on-text="启用" off-text="禁用" v-model="article_data.status" style="width:100%"></el-switch>
             </el-form-item>
+             -->
+
+
             <el-form-item>
                 <el-button type="primary" @click='onSubmit("refArticle")'>立即{{article_data.id ? '修改' : '添加'}}</el-button>
                 

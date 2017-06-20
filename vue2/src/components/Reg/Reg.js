@@ -24,6 +24,8 @@ module.exports = {
                     callback();
                 }
             };
+
+
              var validatePhone = (rule, value, callback) => {
                 this.paytime.disa = true;
                 if (value === '') {
@@ -54,6 +56,41 @@ module.exports = {
                 } else {
                     callback();
                 }
+            };
+            var checkCode = (rule, code, callback) => {
+                var reg = /^$|^[0-9|A-Z]{8}[0-9|X]$/;
+                var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                var params = "3,7,9,10,5,8,4,2".split(",");
+                var sum = 0;    
+                if(reg.test(code)==false)
+                {
+                       callback(new Error('数据格式不正确'));
+                }
+                else
+                {
+                    for(var i=0; i<code.length-1; i++)
+                    {
+                        //取字符串前8位的每位数字
+                        var temp = code.charAt(i);
+                        //当数字为"0"到"9"时
+                        if(str.indexOf(temp) == -1)
+                        {
+                            //当数字为0到9时,计算每位数字与参数的积并累加求和
+                            sum = sum + parseInt(temp)*params[i];
+                        }
+                        else
+                        {
+                            //当数字为"A"到"Z"时,计算每位数字与参数的积并累加求和
+                            sum = sum + (str.indexOf(temp)+10)*params[i];   
+                        }
+                    }
+                    //  alert(sum);
+                    if((code.length!=0)&&((11-sum%11)!=code.charAt(8)))
+                    {
+                        callback(new Error('数据验证位不正确'));
+                    }
+                }
+                callback();
             };
 
         return {
@@ -106,11 +143,10 @@ module.exports = {
                 phonecode: [
                     {required: true,message: '手机验证码不能为空！',trigger: 'blur'},
                 ],
-                zuzhi: [{
-                    required: true,
-                    message: '组织机构代码不能为空！',
-                    trigger: 'blur'
-                 }],
+                zuzhi: [
+                     {required: true,message: '组织机构代码不能为空！',trigger: 'blur'},
+                    { validator: checkCode, trigger: 'blur' },
+                ],
                  shangpu: [
                      {required: true,message: '商铺名称不能为空！',trigger: 'blur'}
                  ],

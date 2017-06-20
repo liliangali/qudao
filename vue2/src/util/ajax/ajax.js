@@ -33,6 +33,7 @@ module.exports = function (type, url, data, fn, {
 	var options = {
 		method : type,
 		url    : host || url,
+
 		headers: headers && typeof headers === 'object' ? headers : {}
 	};
 
@@ -57,6 +58,7 @@ module.exports = function (type, url, data, fn, {
 			// data.token = this.$store.state.user.userinfo.token;
 			options.headers.Authorization = 'Bearer '+this.$store.state.user.userinfo.token;
 		}
+		options.emulateJSON = true;
 
 		//axios内置属性均可写在这里
 		if (axios_opts && typeof axios_opts === 'object') {

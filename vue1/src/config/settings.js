@@ -39,24 +39,25 @@ var settings = {
 		 * ajax请求网络出错时调用
 		 */
 		requestError(err) {
+			if (err.response.status == 401) //token过期重新登录
+			{
+					this.$store.dispatch('remove_userinfo').then(() => {
+						this.$router.push('/login');
+					// this.$alert(err.status + ',' + err.msg + '！', '登录错误', {
+					// 	confirmButtonText: '确定',
+					// 	callback: action => {
+					// 		this.$router.push('/login');
+					// 	}
+					// });
+				});
+				return;
+			}
 			if (err.response.error == 'token_expired') 
 			{
 				this.$router.push('/login');
 				return;
 			}
-			if (err.response.status == 401) //token过期重新登录
-			{
-					this.$store.dispatch('remove_userinfo').then(() => {
-					this.$alert(err.status + ',' + err.msg + '！', '登录错误', {
-						confirmButtonText: '确定',
-						callback: action => {
-							this.$router.push('/login');
-						}
-					});
-				});
-				return;
-			}
-
+		
 
 			this.$message({
 				showClose: true,

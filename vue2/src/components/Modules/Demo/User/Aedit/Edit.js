@@ -1,6 +1,7 @@
 module.exports = {
 	name   : 'user',
 	data() {
+		
 		return {
 			user_data : {
 				bank_card   : '',
@@ -10,11 +11,9 @@ module.exports = {
 				phone_code:'',
 			},
 			user_rules: {
-				bank_card   : [{
-					required   : 'true',
-					message: '银行卡必须填写！',
-					trigger: 'blur'
-				}],
+				bank_card   : [
+				 { required   : 'true',message: '银行卡必须填写！',trigger: 'blur'},
+				],
 				bank_address   : [{
 					required   : 'true',
 					message: '开户地址必须填写',

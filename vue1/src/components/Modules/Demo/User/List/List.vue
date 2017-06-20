@@ -86,23 +86,27 @@
                           label="操作"
                           width="150">
                           <template scope="scope">
+                           <el-tooltip class="item" effect="dark" content="查看渠道订单" placement="bottom-end">
                                <el-button
                             type="info"
                             icon='view'
                             size="mini"
                             @click='onSelectOrder(scope.row)'></el-button>
-
+                             </el-tooltip>
+                            <el-tooltip class="item" effect="dark" content="查看渠道下线" placement="bottom-end">
                              <el-button
                             type="info"
                             icon='view'
                             size="mini"
                             @click='onSelectUser(scope.row)'></el-button>
-                    <el-button
+                              </el-tooltip>
+                                <el-tooltip class="item" effect="dark" content="修改渠道信息" placement="bottom-end">
+                           <el-button
                             type="info"
                             icon='edit'
                             size="mini"
                             @click='onEditUser(scope.row)'></el-button>
-          
+                             </el-tooltip>
                           </template>
             </el-table-column>
 
